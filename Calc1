@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class Calcul1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int men1;
+        do {
+            System.out.println("Menu:");
+            System.out.println("0 - Salir");
+            System.out.println("1 - Sumar");
+            System.out.println("2 - Restar");
+            System.out.println("3 - Multiplicar");
+            System.out.println("4 - Dividir");
+            System.out.print("Ingrese el numero y enter para elegir: ");
+            men1 = scanner.nextInt();
+
+            if (men1 >= 1 && men1 <= 4) {
+                System.out.print("Ingrese el primer numero: ");
+                double num1 = scanner.nextDouble();
+                System.out.print("Ingrese el segundo numero: ");
+                double num2 = scanner.nextDouble();
+
+                switch (men1) {
+                    case 1:
+                        System.out.println("Resultado: "  + num1 + "+" + num2 + " = " + (num1 + num2));
+                        break;
+                    case 2:
+                        System.out.println("Resultado: "  + num1 + "-" + num2 + " = " + (num1 - num2));
+                        break;
+                    case 3:
+                        System.out.println("Resultado: " + num1 + "*" + num2 + " = " + (num1 * num2));
+                        break;
+                    case 4:
+                        if (num2 != 0) {
+                            System.out.println("Resultado: " + num1 + "/" + num2 + " = " + (num1 / num2));
+                        } else {
+                            System.out.println("Error: Divisiones por cero no son aceptadas.");
+                        }
+                        break;
+                }
+            } else if (men1 != 0) {
+                System.out.println("Opcion invalida. Pruebe nuevamente.");
+            }
+        } while (men1 != 0);
+
+        System.out.println("Has salido de la calculadora, nos vemos pronto.");
+        scanner.close();
+    }
+}
