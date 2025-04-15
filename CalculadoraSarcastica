@@ -1,0 +1,63 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class CalculadoraSarcastica {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+        int men1;
+
+        System.out.println("🇺🇾 Bienvenido a la Calculadora v2.0 (todavía no sacamos la 3.0!).");
+
+        do {
+            System.out.println("\n Menú (con menos opciones que un boliche a las 5 AM):");
+            System.out.println("0 - Salir (por si ya te aburriste)");
+            System.out.println("1 - Sumar (porque claramente no sabés sabes ni 2+2)");
+            System.out.println("2 - Restar (cuando te descuentan el IVA)");
+            System.out.println("3 - Multiplicar (como tus problemas)");
+            System.out.println("4 - Dividir (pero no el asado, eh)");
+            System.out.print(" Elegí una opción: ");
+            men1 = scanner.nextInt();
+
+            if (men1 >= 1 && men1 <= 4) {
+                System.out.print(" Primer número (sí, vos podés): ");
+                double num1 = scanner.nextDouble();
+                System.out.print(" Segundo número (hacelo bien esta vez): ");
+                double num2 = scanner.nextDouble();
+
+                String[] respuestasSarcasticas = {
+                    "Dame un segundo, estoy haciendo magia con números... ",
+                    "Esto lo podría hacer una tortuga, pero bueno, acá estoy.",
+                    "¿En serio necesitás ayuda para esto? Bueno, allá vamos...",
+                    "Procesando con la velocidad de un trámite en el BPS... "
+                };
+                System.out.println("\n" + respuestasSarcasticas[random.nextInt(respuestasSarcasticas.length)] + "\n");
+
+                switch (men1) {
+                    case 1:
+                        System.out.println("📊 Resultado: " + num1 + " + " + num2 + " = " + (num1 + num2));
+                        break;
+                    case 2:
+                        System.out.println("📉 Resultado: " + num1 + " - " + num2 + " = " + (num1 - num2));
+                        break;
+                    case 3:
+                        System.out.println("💥 Resultado: " + num1 + " * " + num2 + " = " + (num1 * num2));
+                        break;
+                    case 4:
+                        if (num2 != 0) {
+                            System.out.println("⚖ Resultado: " + num1 + " / " + num2 + " = " + (num1 / num2));
+                        } else {
+                            System.out.println(" Che, ¿dividir por cero? ¿Querés que explote todo?");
+                        }
+                        break;
+                }
+            } else if (men1 != 0) {
+                System.out.println("404 Esa opción no existe, pero capaz en otro universo paralelo sí.");
+            }
+
+        } while (men1 != 0);
+
+        System.out.println(" Listo, saliste. Andá a tomarte un mate y dejame descansar. Nos vemos, wachin.");
+        scanner.close();
+    }
+}
