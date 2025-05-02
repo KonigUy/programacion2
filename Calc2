@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class Calculadora {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int opciones;
+
+        System.out.println("Bienvenido a la Calculadora v2.0.");
+
+        do {
+            displayMenu();
+            opciones = scanner.nextInt();
+
+            if (opciones >= 1 && opciones <= 4) {
+                double num1 = getNumero(scanner, " Primer número: ");
+                double num2 = getNumero(scanner, " Segundo número: ");
+
+                realizarOperacion(opciones, num1, num2);
+            } else if (opciones != 0) {
+                System.out.println("404 Esa opción no existe.");
+            }
+
+        } while (opciones != 0);
+
+        System.out.println(" Adios, Nos vemos en la proxima.");
+        scanner.close();
+    }
+
+    // Funcion Menu
+    private static void displayMenu() {
+        System.out.println("\n Menú:");
+        System.out.println("0 - Salir");
+        System.out.println("1 - Sumar");
+        System.out.println("2 - Restar");
+        System.out.println("3 - Multiplicar");
+        System.out.println("4 - Dividir");
+        System.out.print(" Elige una opción: ");
+    }
+
+    // Funcion Solicitar número
+    private static double getNumero(Scanner scanner, String mensaje) {
+        System.out.print(mensaje); // Display the prompt message
+        return scanner.nextDouble(); // Read and return the number
+    }
+
+    // Funcion Realizar operación
+    private static void realizarOperacion(int opciones, double num1, double num2) {
+        switch (opciones) {
+            case 1:
+                System.out.println(" Resultado: " + num1 + " + " + num2 + " = " + (num1 + num2));
+                break;
+            case 2:
+                System.out.println(" Resultado: " + num1 + " - " + num2 + " = " + (num1 - num2));
+                break;
+            case 3:
+                System.out.println(" Resultado: " + num1 + " * " + num2 + " = " + (num1 * num2));
+                break;
+            case 4:
+                if (num2 != 0) {
+                    System.out.println(" Resultado: " + num1 + " / " + num2 + " = " + (num1 / num2));
+                } else {
+                    System.out.println(" No se puede dividir por cero.");
+                }
+                break;
+        }
+    }
+}
