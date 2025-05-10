@@ -12,8 +12,6 @@
 // Muestra esos números uno por uno.
 
 
-package arregloingresausuario;
-
 import java.util.Scanner;
 
 public class Main {
